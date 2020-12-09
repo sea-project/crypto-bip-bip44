@@ -1,40 +1,40 @@
 package bip44
 
 import (
-	"github.com/sea-project/crypto-bip-bip32"
+	bip32 "github.com/sea-project/crypto-bip-bip32"
+	bip39 "github.com/sea-project/crypto-bip-bip39"
 )
 
-const (
-	Purpose   uint32 = 0x8000002C
-	Purpose45 uint32 = 0x8000002d
-)
+// https://github.com/satoshilabs/slips/blob/master/slip-0044.md
+func NewKeyFromMnemonic(mnemonic string, coin, account, chain, address uint32) (*bip32.Key, error) {
+	seed, err := bip39.NewSeedWithMnemonic(mnemonic, "")
+	if err != nil {
+		return nil, err
+	}
 
-// bip44 m / purpose' / coin_type' / account' / change / address_index
-// bip45 m / purpose' / algorithmType'/ orgOrCoinType' / account' / change / address_index
-// CKD: m: 使用 CKDpriv, M 则表示使用 CKDPub
+	masterKey, err := bip32.NewMasterKey(seed)
+	if err != nil {
+		return nil, err
+	}
+
+	return NewKeyFromMasterKey(masterKey, coin, account, chain, address)
+}
+
+// m / purpose' / coin_type' / account' / change / address_index
 // purpose 根据BIP43建议将常量设置为44'（或0x8000002C）。它指示根据此规范使用了此节点的子树
-// purpose参见：https://github.com/satoshilabs/slips/blob/master/slip-0044.md
-// coinType 币种
-// org 组织
+// coin_type 特指币种并且允许多元货币 HD 钱包中的货币在第二个层级下有自己的亚树状结构
 // account  将密钥空间划分为独立的用户身份
 // change 0用于外部接收地址 1用于找零地址
-// addressIndex  地址索引
-func NewKeyFromMasterKey(masterKey *bip32.Key, purpose, coinType, org, account, change, addressIndex uint32) (*bip32.Key, error) {
-	child, err := masterKey.NewChildKey(purpose)
+// address_index  地址索引
+func NewKeyFromMasterKey(masterKey *bip32.Key, coin_type, account, change, address_index uint32) (*bip32.Key, error) {
+	child, err := masterKey.NewChildKey(Purpose)
 	if err != nil {
 		return nil, err
 	}
 
-	child, err = child.NewChildKey(coinType)
+	child, err = child.NewChildKey(coin_type)
 	if err != nil {
 		return nil, err
-	}
-
-	if purpose != Purpose {
-		child, err = child.NewChildKey(org)
-		if err != nil {
-			return nil, err
-		}
 	}
 
 	child, err = child.NewChildKey(account)
@@ -47,7 +47,7 @@ func NewKeyFromMasterKey(masterKey *bip32.Key, purpose, coinType, org, account, 
 		return nil, err
 	}
 
-	child, err = child.NewChildKey(addressIndex)
+	child, err = child.NewChildKey(address_index)
 	if err != nil {
 		return nil, err
 	}

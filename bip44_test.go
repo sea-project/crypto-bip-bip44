@@ -25,7 +25,7 @@ func Test_NewKeyFromMnemonic(t *testing.T) {
 	}
 	t.Log("key：" + string(key))
 
-	xkey, _ := NewKeyFromMasterKey(masterKey, 0x8000003c, 60, 0, 0, 0, 0)
+	xkey, _ := NewKeyFromMasterKey(masterKey, 0x8000003c, 60, 0, 0)
 	fmt.Println("私钥：" + xkey.B58Serialize())
 	fmt.Println("地址：" + bip32.PubKeyToAddr(xkey.PublicKey().Key))
 }

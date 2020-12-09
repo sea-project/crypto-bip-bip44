@@ -18,10 +18,12 @@ var (
 	TypeEther        = CoinType{Index: 60, Hexa: 0x8000003c, Symbol: "ETH", CoinName: "Ether"}
 	TypeEtherClassic = CoinType{Index: 61, Hexa: 0x8000003d, Symbol: "ETC", CoinName: "Ether Classic"}
 
-	TypeSEA  = CoinType{Index: 562, Hexa: 0x80000232, Symbol: "SEA", CoinName: "SEA"}
-	TypeBSC  = CoinType{Index: 563, Hexa: 0x80000233, Symbol: "BSC", CoinName: "BSC"}
-	TypeSSEA = CoinType{Index: 564, Hexa: 0x80000234, Symbol: "SSEA", CoinName: "SSEA"}
+	TypeSEA  = CoinType{Index: 888888, Hexa: 0x800d9038, Symbol: "SEA", CoinName: "SEA"}
+	TypeBSC  = CoinType{Index: 888887, Hexa: 0x800d9037, Symbol: "BSC", CoinName: "BSC"}
+	TypeSSEA = CoinType{Index: 888886, Hexa: 0x800d9036, Symbol: "SSEA", CoinName: "SSEA"}
 )
+
+const Purpose uint32 = 0x8000002C
 
 const (
 	TypePeercoin              uint32 = 0x80000006
