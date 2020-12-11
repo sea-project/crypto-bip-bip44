@@ -20,6 +20,6 @@ var (
 	TypeIHC  = CoinType{Index: 888884, Hexa: 0x800d9034, Symbol: "IHC", CoinName: "IHC"}
 	TypeUSDTETH  = CoinType{Index: 888883, Hexa: 0x800d9033, Symbol: "USDT-ERC20", CoinName: "USDT-ERC20"}
 	TypeUSDTBTC  = CoinType{Index: 888882, Hexa: 0x800d9032, Symbol: "USDT-OMNI", CoinName: "USDT-OMNI"}
-	TypeBTCTEST  = CoinType{Index: 1, Hexa: 0x80000001, Symbol: "Testnet", CoinName: "Bitcoin Testnet"}
+	TypeBTCTEST  = CoinType{Index: 1, Hexa: 0x80000001, Symbol: "TESTNET", CoinName: "Bitcoin Testnet"}
 )
 
