@@ -8,19 +8,24 @@ type CoinType struct {
 }
 
 var (
+
+	// 数字资产所用类型
 	TypeBitcoin  = CoinType{Index: 0, Hexa: 0x80000000, Symbol: "BTC", CoinName: "Bitcoin"}
 	TypeTestnet  = CoinType{Index: 1, Hexa: 0x80000001, Symbol: "Testnet", CoinName: "Testnet (all coins)"}
+	TypeEther    = CoinType{Index: 60, Hexa: 0x8000003c, Symbol: "ETH", CoinName: "Ether"}
+	TypeSEA  = CoinType{Index: 888888, Hexa: 0x800d9038, Symbol: "SEA", CoinName: "SEA"}
+	TypeBSC  = CoinType{Index: 888887, Hexa: 0x800d9037, Symbol: "BSC", CoinName: "BSC"}
+	TypeSSEA = CoinType{Index: 888886, Hexa: 0x800d9036, Symbol: "SSEA", CoinName: "SSEA"}
+	TypeSDG  = CoinType{Index: 888885, Hexa: 0x800d9035, Symbol: "SDG", CoinName: "SDG"}
+	TypeIHC  = CoinType{Index: 888884, Hexa: 0x800d9034, Symbol: "IHC", CoinName: "IHC"}
+	TypeUSDTETH  = CoinType{Index: 888883, Hexa: 0x800d9033, Symbol: "USDT-ERC20", CoinName: "USDT-ERC20"}
+	TypeUSDTBTC  = CoinType{Index: 888882, Hexa: 0x800d9032, Symbol: "USDT-OMNI", CoinName: "USDT-OMNI"}
+
 	TypeLitecoin = CoinType{Index: 2, Hexa: 0x80000002, Symbol: "LTC", CoinName: "Litecoin"}
 	TypeDogecoin = CoinType{Index: 3, Hexa: 0x80000003, Symbol: "DOGE", CoinName: "Dogecoin"}
 	TypeReddcoin = CoinType{Index: 4, Hexa: 0x80000004, Symbol: "RDD", CoinName: "Reddcoin"}
 	TypeDash     = CoinType{Index: 5, Hexa: 0x80000005, Symbol: "DASH", CoinName: "Dash (ex Darkcoin)"}
-
-	TypeEther        = CoinType{Index: 60, Hexa: 0x8000003c, Symbol: "ETH", CoinName: "Ether"}
 	TypeEtherClassic = CoinType{Index: 61, Hexa: 0x8000003d, Symbol: "ETC", CoinName: "Ether Classic"}
-
-	TypeSEA  = CoinType{Index: 888888, Hexa: 0x800d9038, Symbol: "SEA", CoinName: "SEA"}
-	TypeBSC  = CoinType{Index: 888887, Hexa: 0x800d9037, Symbol: "BSC", CoinName: "BSC"}
-	TypeSSEA = CoinType{Index: 888886, Hexa: 0x800d9036, Symbol: "SSEA", CoinName: "SSEA"}
 )
 
 const Purpose uint32 = 0x8000002C
