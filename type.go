@@ -14,7 +14,7 @@ var (
 	TypeBTC  = CoinType{Index: 0, Hexa: 0x80000000, Symbol: "BTC", CoinName: "Bitcoin"}
 	TypeETH  = CoinType{Index: 60, Hexa: 0x8000003c, Symbol: "ETH", CoinName: "Ethereum"}
 	TypeSEA  = CoinType{Index: 888888, Hexa: 0x800d9038, Symbol: "SEA", CoinName: "SEA"}
-	TypeBSC  = CoinType{Index: 888887, Hexa: 0x800d9037, Symbol: "BSC", CoinName: "BSC"}
+	TypeBSCC = CoinType{Index: 888887, Hexa: 0x800d9037, Symbol: "BSCC", CoinName: "BSCC"}
 	TypeSSEA = CoinType{Index: 888886, Hexa: 0x800d9036, Symbol: "SSEA", CoinName: "SSEA"}
 	TypeSDG  = CoinType{Index: 888885, Hexa: 0x800d9035, Symbol: "SDG", CoinName: "SDG"}
 	TypeIHC  = CoinType{Index: 888884, Hexa: 0x800d9034, Symbol: "IHC", CoinName: "IHC"}
